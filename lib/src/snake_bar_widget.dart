@@ -16,9 +16,13 @@ class SnakeNavigationBar extends StatelessWidget {
   /// a background color of whole [SnakeNavigationBar] view
   final Gradient backgroundGradient;
 
-  /// This color represents a SnakeView and unselected
+  /// This color represents a SnakeView
   /// Icon and label color
   final Gradient selectedColor;
+
+  /// This color represents a unselected
+  /// Icon and label gradient
+  final Gradient unselectedGradient;
 
   /// Whether the labels are shown for the selected [BottomNavigationBarItem].
   final bool showSelectedLabels;
@@ -63,6 +67,7 @@ class SnakeNavigationBar extends StatelessWidget {
     Gradient snakeGradient,
     Color backgroundColor,
     Gradient backgroundGradient,
+    this.unselectedGradient,
     bool showSelectedLabels = false,
     this.showUnselectedLabels = false,
     this.items,
@@ -106,7 +111,7 @@ class SnakeNavigationBar extends StatelessWidget {
               showUnselectedLabels,
               items.indexOf(item),
               backgroundGradient,
-              selectedColor,
+              unselectedGradient ?? selectedColor,
               _notifier,
               snakeShape.type == SnakeShapeType.indicator
                   ? SelectionStyle.opacity
